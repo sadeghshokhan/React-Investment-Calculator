@@ -19,11 +19,14 @@ function App() {
             }
         })
     }
+
+    const validInput =  userInput.duration >= 1
   return (
     <>
     <Header/>
     <InputUser onChange={handleChange} investValue={userInput}/>
-    <Result investValue={userInput}/>
+    {!validInput && <p className="center">write true format of duration</p> }
+    {validInput && <Result investValue={userInput}/>}
     </>
   )
 }
